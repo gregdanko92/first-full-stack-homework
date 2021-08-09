@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Index Page</title>
+</head>
+<body>
+    <h1>these be the cars</h1>
+    <ul>
+   <% for (let i= 0; i< allCars.length; i++) { %>
+    <li>
+        <p> <a href="/cars/<%= allCars[i]._id %>">
+            <h2><%= allCars[i].carName %></h2>
+        </a>
+        </p>
+
+
+
+
+        <!-- Will hit the delete fruit route for that fruit -->
+        <form action="/cars/<%= allCars[i]._id %>?_method=DELETE" method="POST">
+            <input type="submit" value="Delete this Car">
+        </form>
+        
+        <!-- redirects to the edit page for that fruit -->
+        <a href="/cars/<%= allCars[i]._id %>/edit">Edit this Car</a>
+        
+        
+    </li>
+    <% } %> 
+    <br>
+        <li><a href="/cars/new/">Create a Car</a></li>
+    </ul>
+
+
+</body>
+</html>
